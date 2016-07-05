@@ -63,28 +63,24 @@ atom-text-editor::shadow {
     &.git-line-modified,
     &.git-line-removed {
       border-left: none;
-      color: @black;
       padding-left: 0.5em;
     }
     &.git-line-added {
-      background-color: @git-added;
+      box-shadow: inset -4px 0 @git-added;
       &.cursor-line {
-        background-color: @git-added-highlighted;
-        color: @white;
+        box-shadow: inset -4px 0 @git-added-highlight;
       }
     }
     &.git-line-modified {
-      background-color: @git-modified;
+      box-shadow: inset -4px 0 @git-modified;
       &.cursor-line {
-        background-color: @git-modified-highlighted;
-        color: @white;
+        box-shadow: inset -4px 0 @git-modified-highlight;
       }
     }
     &.git-line-removed {
-      background-color: @git-removed;
+      box-shadow: inset -4px 0 @git-removed;
       &.cursor-line {
-        background-color: @git-removed-highlighted;
-        color: @white;
+        box-shadow: inset -4px 0 @git-removed-highlight;
       }
     }
   }
