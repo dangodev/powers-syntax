@@ -1,0 +1,91 @@
+// Variables
+
+@import "./styles/_colors.less";
+
+// Languages
+
+@import "./lang/_coffee.less";
+@import "./lang/_haml.less";
+@import "./lang/_js.less";
+@import "./lang/_md.less";
+@import "./lang/_mustache.less";
+@import "./lang/_ruby.less";
+@import "./lang/_sass.less";
+@import "./lang/_yaml.less";
+
+// Global
+
+atom-text-editor, :host {
+  background-color: @white;
+  color: @black;
+  line-height: 1.5;
+  .line.cursor-line {
+    box-shadow: inset 0 -1px @black;
+  }
+  .hidden-input {
+    background-color: @gray;
+  }
+  .invisible-character {
+    color: rgba(0, 0, 0, 0.3);
+  }
+  .line-number {
+    color: @gray;
+    opacity: 1;
+  }
+  .line-number.cursor-line {
+    background-color: @red;
+    color: @white;
+  }
+  .search-results {
+    .marker .region {
+      background-color: transparent;
+      border: 1px solid @black;
+    }
+    .marker.current-result .region {
+      border: 1px solid @red;
+    }
+  }
+  .selection .region {
+    background-color: @red;
+  }
+  .wrap-guide {
+    background-color: @black!important;
+  }
+}
+
+
+// Git
+
+atom-text-editor,
+atom-text-editor::shadow {
+  .gutter .line-number {
+    &.git-line-added,
+    &.git-line-modified,
+    &.git-line-removed {
+      border-left: none;
+      color: @black;
+      padding-left: 0.5em;
+    }
+    &.git-line-added {
+      background-color: @git-added;
+      &.cursor-line {
+        background-color: @git-added-highlighted;
+        color: @white;
+      }
+    }
+    &.git-line-modified {
+      background-color: @git-modified;
+      &.cursor-line {
+        background-color: @git-modified-highlighted;
+        color: @white;
+      }
+    }
+    &.git-line-removed {
+      background-color: @git-removed;
+      &.cursor-line {
+        background-color: @git-removed-highlighted;
+        color: @white;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.js {
+  &.comment {
+    color: @gray;
+  }
+  &.variable {
+    color: @red-dark;
+  }
+  &.constant {
+    &.dom,
+    &.other {
+      color: @red-dark;
+    }
+  }
+}
