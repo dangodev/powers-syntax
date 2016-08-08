@@ -15,13 +15,20 @@
 
 // Global
 
-atom-text-editor, :host {
+atom-text-editor,
+:host,
+atom-pane-container atom-pane .item-views .pane-item {
   background-color: @white;
   color: @black;
   font-feature-settings: "liga" 0, "calt" 0;
   line-height: 1.5;
   .line.cursor-line {
     box-shadow: inset 0 -1px @black;
+  }
+  .highlight-info {
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: inset 0 -2px @red;
   }
   .hidden-input {
     background-color: @gray;
@@ -37,23 +44,61 @@ atom-text-editor, :host {
     background-color: @red;
     color: @white;
   }
+  .list-group .selected::before,
+  .list-tree .selected::before {
+    display: none
+  }
+  .results-view .selected {
+    box-shadow: inset 0 -1px @black;
+    .highlight-info {
+      box-shadow: inset 0 -2px @red;
+    }
+    .line-number {
+      background-color: @red;
+    }
+    .preview {
+      color: @black;
+    }
+  }
   .search-results {
     .marker .region {
       background-color: transparent;
-      border: 1px solid @black;
+      border: none;
+      box-shadow: inset 0 -2px @red;
     }
     .marker.current-result .region {
-      border: 1px solid @red;
+      box-shadow: inset 0 -2px @red;
     }
   }
   .selection .region {
-    background-color: @red;
+    background: @red;
   }
   .wrap-guide {
     background-color: @black!important;
   }
 }
 
+// Search Results
+
+atom-text-editor,
+atom-text-editor::shadow {
+  .find-result .region {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    box-shadow: inset 0 -2px @red;
+  }
+
+  .current-result .region {
+    border-radius: 0;
+    border: none;
+  }
+
+  .find-result,
+  .current-result {
+    display: none;
+  }
+}
 
 // Git
 
